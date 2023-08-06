@@ -11,6 +11,8 @@
 		604F611F2A7FA2F70067C08C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604F611E2A7FA2F70067C08C /* ContentView.swift */; };
 		604F61212A7FA2FA0067C08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 604F61202A7FA2FA0067C08C /* Assets.xcassets */; };
 		604F61242A7FA2FA0067C08C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 604F61232A7FA2FA0067C08C /* Preview Assets.xcassets */; };
+		604F612B2A7FBC3B0067C08C /* PlantSkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604F612A2A7FBC3B0067C08C /* PlantSkeletonView.swift */; };
+		604F612D2A7FDA310067C08C /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604F612C2A7FDA310067C08C /* SliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		604F611E2A7FA2F70067C08C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		604F61202A7FA2FA0067C08C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		604F61232A7FA2FA0067C08C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		604F612A2A7FBC3B0067C08C /* PlantSkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSkeletonView.swift; sourceTree = "<group>"; };
+		604F612C2A7FDA310067C08C /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				604F611E2A7FA2F70067C08C /* ContentView.swift */,
 				604F61202A7FA2FA0067C08C /* Assets.xcassets */,
 				604F61222A7FA2FA0067C08C /* Preview Content */,
+				604F612A2A7FBC3B0067C08C /* PlantSkeletonView.swift */,
+				604F612C2A7FDA310067C08C /* SliderView.swift */,
 			);
 			path = PlantTheSeed;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604F612B2A7FBC3B0067C08C /* PlantSkeletonView.swift in Sources */,
+				604F612D2A7FDA310067C08C /* SliderView.swift in Sources */,
 				604F611F2A7FA2F70067C08C /* ContentView.swift in Sources */,
 				604F611D2A7FA2F70067C08C /* PlantTheSeedApp.swift in Sources */,
 			);
