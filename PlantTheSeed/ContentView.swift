@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var startFour = false
     @State private var startFive = false
     @State private var lightIsOn = false
-    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     
     
     var body: some View {
@@ -189,7 +189,7 @@ struct ContentView: View {
     }
     
     private func startTimer() {
-        timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+        timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     }
     
     private func stopTimer() {
