@@ -77,14 +77,24 @@ struct ContentView: View {
                             }
                         }
                         
-                    Image(systemName: "archivebox.fill")
-                        .resizable()
-                        .foregroundColor(.gray)
+                    Circle()
+                        .trim(from: 0, to: 0.5)
                         
-                        .frame(width: 100, height: 100)
-                        .position(x: 200, y: 530)
-                        .shadow(color: .black, radius: 5)
-                        .shadow(color: .black, radius: 5)
+                        .fill(RadialGradient(colors: [.yellow, .black], center: .center, startRadius: 1, endRadius: 90))
+                        
+                        
+                        
+                        
+                        .frame(width: 200, height: 300)
+                        .overlay(Circle()
+                            .trim(from: 0, to: 0.5)
+                            .stroke(lineWidth: 5))
+                        .blendMode(.plusLighter)
+                        .scaledToFit()
+                        .position(x: 200, y: 480)
+                        .shadow(color: .black, radius: 3)
+                        
+                        
 
                 }
                 
