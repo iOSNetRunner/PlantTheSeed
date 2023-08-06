@@ -16,18 +16,34 @@ struct ContentView: View {
     @State private var startThree = false
     @State private var startFour = false
     @State private var startFive = false
+    @State private var lightIsOn = false
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Gradient(colors: [.black, .brown, .black]))
+                .fill(Gradient(colors: [Color(uiColor: .systemBrown), .brown, .black]))
                 .ignoresSafeArea()
             
             VStack {
                 
                 ZStack {
+                    Circle()
+                        .trim(from: 0, to: 0.5)
+                        .fill(RadialGradient(colors: [.white, .black], center: .center, startRadius: 1, endRadius: 210))
+                        
+                        .blendMode(.plusLighter)
+                        
+                        .ignoresSafeArea()
+                        .offset(x: 0, y: lightIsOn ? 0 : 0)
+                        .scaleEffect(lightIsOn ? 1.5 : 0.5)
+                        .opacity(lightIsOn ? 1 : 0)
+                        .transition(.opacity)
+                        .animation(.easeOut(duration: 1.5), value: lightIsOn)
+                        .padding(.top, -560)
+                        
+                        
                     
                     PlantSkeletonView()
                         .trim(from: 0.0, to: pathProgress)
@@ -53,7 +69,7 @@ struct ContentView: View {
                         .shadow(color: .green, radius: 3)
                         .shadow(color: .black, radius: 1)
                         .scaleEffect(start ? 1 : 1.1)
-                        .offset(x: start ? 5 : 0, y: start ? 0 : -40)
+                        .offset(x: start ? 5 : 0, y: start ? -20 : -40)
                         .rotationEffect(.degrees(start ? 1 : -2))
                         .onAppear() {
                             withAnimation(
@@ -85,8 +101,8 @@ struct ContentView: View {
                     PlantSkeletonView()
                         .trim(from: 0.0, to: pathProgress)
                         .fill(Gradient(colors: [.black, .green, .black]))
-                        .rotationEffect(.degrees(startFour ? 7 : 7), anchor: .bottom)
-                        .offset(x: 0, y: 160)
+                        .rotationEffect(.degrees(startFour ? 5 : 7), anchor: .bottom)
+                        .offset(x: 0, y: 70)
                         .shadow(color: .green, radius: 5)
                         .shadow(color: .black, radius: 1)
                         .scaleEffect(startFour ? 0.8: 0.75)
@@ -102,7 +118,7 @@ struct ContentView: View {
                         .trim(from: 0.0, to: pathProgress)
                         .fill(Gradient(colors: [.black, .green, .black]))
                         .rotationEffect(.degrees( startThree ? -45 : -40), anchor: .bottom)
-                        .offset(x: 80, y: 100)
+                        .offset(x: 80, y: 85)
                         .shadow(color: .green, radius: 5)
                         .shadow(color: .black, radius: 2)
                         .scaleEffect(0.6)
@@ -116,35 +132,24 @@ struct ContentView: View {
                         
                     Circle()
                         .trim(from: 0, to: 0.5)
-                        
-                        .fill(RadialGradient(colors: [.white, .black], center: .center, startRadius: 1, endRadius: 110))
-                        
-                        
-                        
-                        
+                        .fill(RadialGradient(colors: [.white, .brown, .black], center: .center, startRadius: 1, endRadius: 110))
                         .frame(width: 200, height: 300)
                         .overlay(Circle()
                             .trim(from: 0, to: 0.5)
                             .stroke(lineWidth: 5))
                         .blendMode(.plusLighter)
-                        .scaledToFit()
-                        .position(x: 200, y: 480)
-                        .shadow(color: .black, radius: 5)
-                        
-                        
-
+                        .position(x: 200, y: 470)
+                        .shadow(color: .black, radius: 2)
                 }
-                
-                
-        
                 
                 SliderView(pathProgress: $pathProgress, timer: $timer, stopTimer: stopTimer)
                     .shadow(color: .green, radius: 10)
                     .shadow(color: .green, radius: 20)
                 
+                
                 HStack {
                     Button {
-                        start = false
+                       lightIsOn = false
                         isOn = false
                         withAnimation {
                             pathProgress = 0
@@ -160,7 +165,7 @@ struct ContentView: View {
                     
                     
                     Button {
-                        start = true
+                        lightIsOn = true
                         isOn = true
                         startTimer()
                     } label: {
