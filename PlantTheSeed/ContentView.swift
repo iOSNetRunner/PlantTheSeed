@@ -23,12 +23,12 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Gradient(colors: [Color(uiColor: .systemBrown), .brown, .black]))
+                .fill(Gradient(colors: [.brown, .brown, .black]))
                 .ignoresSafeArea()
             
             VStack {
-                
                 ZStack {
+                    
                     Circle()
                         .trim(from: 0, to: 0.5)
                         .fill(RadialGradient(colors: [.white, .black], center: .center, startRadius: 1, endRadius: 210))
@@ -58,8 +58,7 @@ struct ContentView: View {
                             withAnimation(
                                 .easeInOut(duration: 2).repeatForever().delay(2)
                             ) {
-                                startFive = true
-                                
+                                startFive.toggle()
                             }
                         }
                     
@@ -75,8 +74,7 @@ struct ContentView: View {
                             withAnimation(
                                 .easeInOut(duration: 4).repeatForever().delay(2)
                             ) {
-                                start = true
-                                
+                                start.toggle()
                             }
                         }
                         
@@ -149,8 +147,13 @@ struct ContentView: View {
                 
                 HStack {
                     Button {
-                       lightIsOn = false
-                        isOn = false
+                        start.toggle()
+                        startTwo.toggle()
+                        startThree.toggle()
+                        startFour.toggle()
+                        startFive.toggle()
+                        lightIsOn.toggle()
+                        isOn.toggle()
                         withAnimation {
                             pathProgress = 0
                         }
@@ -165,8 +168,13 @@ struct ContentView: View {
                     
                     
                     Button {
-                        lightIsOn = true
-                        isOn = true
+                        start.toggle()
+                        startTwo.toggle()
+                        startThree.toggle()
+                        startFour.toggle()
+                        startFive.toggle()
+                        lightIsOn.toggle()
+                        isOn.toggle()
                         startTimer()
                     } label: {
                         Image(systemName: pathProgress < 0.99 ? "play.fill" : "stop.fill")
