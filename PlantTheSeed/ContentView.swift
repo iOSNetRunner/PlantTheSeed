@@ -32,11 +32,8 @@ struct ContentView: View {
                     Circle()
                         .trim(from: 0, to: 0.5)
                         .fill(RadialGradient(colors: [.white, .black], center: .center, startRadius: 1, endRadius: 210))
-                        
                         .blendMode(.plusLighter)
-                        
                         .ignoresSafeArea()
-                        .offset(x: 0, y: lightIsOn ? 0 : 0)
                         .scaleEffect(lightIsOn ? 1.5 : 0.5)
                         .opacity(lightIsOn ? 1 : 0)
                         .transition(.opacity)
@@ -58,7 +55,7 @@ struct ContentView: View {
                             withAnimation(
                                 .easeInOut(duration: 2).repeatForever().delay(2)
                             ) {
-                                startFive.toggle()
+                                startFive = true
                             }
                         }
                     
@@ -74,7 +71,7 @@ struct ContentView: View {
                             withAnimation(
                                 .easeInOut(duration: 4).repeatForever().delay(2)
                             ) {
-                                start.toggle()
+                                start = true
                             }
                         }
                         
@@ -92,7 +89,7 @@ struct ContentView: View {
                             withAnimation(
                                 .easeInOut(duration: 4).repeatForever().delay(3)
                             ) {
-                                startTwo.toggle()
+                                startTwo = true
                             }
                         }
                     
@@ -108,7 +105,7 @@ struct ContentView: View {
                             withAnimation(
                                 .easeInOut(duration: 5).repeatForever().delay(1)
                             ) {
-                                startFour.toggle()
+                                startFour = true
                             }
                         }
                     
@@ -124,7 +121,7 @@ struct ContentView: View {
                             withAnimation(
                                 .easeInOut(duration: 3).repeatForever().delay(2)
                             ) {
-                                startThree.toggle()
+                                startThree = true
                             }
                         }
                         
@@ -147,13 +144,13 @@ struct ContentView: View {
                 
                 HStack {
                     Button {
-                        start.toggle()
-                        startTwo.toggle()
-                        startThree.toggle()
-                        startFour.toggle()
-                        startFive.toggle()
-                        lightIsOn.toggle()
-                        isOn.toggle()
+                        start = false
+                        startTwo = false
+                        startThree = false
+                        startFour = false
+                        startFive = false
+                        lightIsOn = false
+                        isOn = false
                         withAnimation {
                             pathProgress = 0
                         }
@@ -168,13 +165,13 @@ struct ContentView: View {
                     
                     
                     Button {
-                        start.toggle()
-                        startTwo.toggle()
-                        startThree.toggle()
-                        startFour.toggle()
-                        startFive.toggle()
-                        lightIsOn.toggle()
-                        isOn.toggle()
+                        start = true
+                        startTwo = true
+                        startThree = true
+                        startFour = true
+                        startFive = true
+                        lightIsOn = true
+                        isOn = true
                         startTimer()
                     } label: {
                         Image(systemName: pathProgress < 0.99 ? "play.fill" : "stop.fill")
